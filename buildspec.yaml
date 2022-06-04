@@ -4,9 +4,10 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
+      - docker login -u="srikanthjakka" -p="Srikanth@2427"
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 379735666427.dkr.ecr.us-east-1.amazonaws.com
       - REPOSITORY_URI=379735666427.dkr.ecr.us-east-1.amazonaws.com/pythonflask
-      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-250)
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-50)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
