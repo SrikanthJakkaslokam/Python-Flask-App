@@ -18,7 +18,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Pushing the Docker images...
+      - echo Pushing the Docker images..
       - docker push 379735666427.dkr.ecr.us-east-1.amazonaws.com/pythonflask:latest
       - echo Writing image definitions file...
       - printf '[{"name":"pyflask-contianer","imageUri":"%s"}]' 379735666427.dkr.ecr.us-east-1.amazonaws.com/pythonflask:latest > imagedefinitions.json
