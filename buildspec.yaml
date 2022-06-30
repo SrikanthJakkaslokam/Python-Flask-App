@@ -17,8 +17,13 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+<<<<<<< HEAD
       - echo Pushing the Docker images..
       - docker push 379735666427.dkr.ecr.ap-south-1.amazonaws.com/pythonapp:latest
+=======
+      - echo Pushing the Docker images...
+      - docker push 379735666427.dkr.ecr.us-east-1.amazonaws.com/pythonflask:latest
+>>>>>>> parent of a2c3d3a (Update buildspec.yaml)
       - echo Writing image definitions file...
       - printf '[{"name":"py-container","imageUri":"%s"}]' 379735666427.dkr.ecr.us-east-1.amazonaws.com/pythonflask:latest > imagedefinitions.json
       - cat imagedefinitions.json
